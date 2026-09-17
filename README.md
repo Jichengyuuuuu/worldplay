@@ -1,8 +1,10 @@
 # Worldplay
 
-[在线试玩 / Live demo](https://worldplay-agent-worlds.applejade.chatgpt.site/)
+**English** | [中文文档](./README-ZH.md)
 
-**创建一个局面，看看各怀目标的 Agent 如何行动。你也可以加入其中，改变结果。**
+[Live demo](https://worldplay-agent-worlds.applejade.chatgpt.site/)
+
+**Create a world. Give agents their own goals. Step in and change what happens.**
 
 A small, local-first harness for interactive multi-agent worlds. One scenario format powers the browser playground and CLI. Agents propose actions; the runtime validates conditions, updates resources, and records what actually happened.
 
@@ -11,6 +13,8 @@ A small, local-first harness for interactive multi-agent worlds. One scenario fo
 Node.js 22.9+ (24 recommended). No npm dependencies.
 
 ```bash
+git clone https://github.com/Jichengyuuuuu/worldplay.git
+cd worldplay
 npm start
 # http://localhost:4173
 npm test
@@ -20,9 +24,9 @@ The three built-in scenarios work immediately in **rule demo mode**. This is det
 
 ## Three worlds
 
-- **权力交接** — five candidates negotiate before a succession vote; shared influence resources and individual support scores.
-- **拯救 AI 创业公司** — four stakeholders try to secure revenue and runway within 30 days.
-- **失联飞船** — four crew members restore systems and send a distress signal before oxygen runs out.
+- **Power Succession** — five candidates negotiate before a succession vote; shared influence resources and individual support scores.
+- **Save an AI Startup** — four stakeholders try to secure revenue and runway within 30 days.
+- **Lost Starship** — four crew members restore systems and send a distress signal before oxygen runs out.
 
 The packs in `dist/lib/scenarios.js` share the same engine. Create a custom pack with 2–8 roles, 1–6 metrics, 2–10 actions and 2–30 rounds. Each action can have resource costs, effects, prerequisites, a once-only flag and support points. Initial conditions, roles and JSON are editable before play.
 
@@ -41,16 +45,16 @@ node bin/worldplay.mjs list
 node bin/worldplay.mjs init startup
 node bin/worldplay.mjs observe ceo
 node bin/worldplay.mjs step
-node bin/worldplay.mjs inject "大客户要求提前交付"
+node bin/worldplay.mjs inject "The biggest customer asks for an earlier delivery"
 node bin/worldplay.mjs replay
 node bin/worldplay.mjs export
-node bin/worldplay.mjs create "四个角色经营一家海边旅馆" --file .runs/hotel.json
+node bin/worldplay.mjs create "Four characters run a seaside hotel" --file .runs/hotel.json
 ```
 
 All commands accept `--file SAVE_PATH`. `act ACTION_JSON` queues one character action:
 
 ```json
-{"actorId":"ceo","action":"pitch","speech":"先约定可验收的交付边界。","target":"sales","visibility":"private"}
+{"actorId":"ceo","action":"pitch","speech":"Let us agree on acceptance criteria first.","target":"sales","visibility":"private"}
 ```
 
 `edit ACTOR PATCH_JSON` updates a role; `fork SNAPSHOT_INDEX NEW_PATH` continues from an earlier snapshot without overwriting the original. `npm link` optionally installs `worldplay` locally. The package has not been published to npm. Load `skills/worldplay/SKILL.md` in your agent to follow the observation/action protocol.
@@ -85,8 +89,14 @@ This is a trusted local sandbox. Browser view filtering and CLI observation do n
 
 No GraphRAG, external graph service, real-world prediction claims, automatic optimization, arbitrary code execution, intent/deception inference, or production authentication. Generated scenes are schema-checked, not proven solvable. The default packs demonstrate general action/state mechanics; rich location/inventory simulation can be added through future action types.
 
-### 创业公司危机试玩
+## Startup crisis demo
 
-首页可直接以 CEO 身份进入第 0 轮。三项预设交易支持私聊查看、接受、到期结算；重复接受不会重复发放资源。缩小范围的验收成功计为真实订单，融资对赌失败会记录失去经营权。关键剧情发生后自动运行暂停，结局展示承诺记录并支持回到开局分支。
+Enter as the CEO at round zero. Three scripted deals cover team retention, a smaller delivery scope, and bridge financing. Read the terms privately, accept a deal, and let the runtime check your promise at its deadline. A successful scoped delivery counts as an order; a failed financing condition records loss of operating control. Accepting the same deal twice never grants resources twice.
 
-这些交易是显式规则，不是模型自由谈判：自由发言不会自动建立合同。模型模式仍负责角色下一轮决策；已有旧存档保留原玩法，新开一局进入危机体验。完整存档含剧情和承诺状态。
+Key events pause automatic play. The ending summarizes recorded commitments and lets you branch from the opening. All three demos have skippable introductions, with a browser-local preference to skip every introduction. Skipping changes neither time nor decisions.
+
+These deals use explicit rules. Free-form speech does not automatically create a contract. In model mode, AI still selects character actions for the next round. Existing saves retain their previous behavior; start a new world for the crisis experience.
+
+## Language
+
+Project documentation is available in English and Chinese through the links above. The current playground interface and built-in scenario text are in Chinese; documentation language does not change the application language.
