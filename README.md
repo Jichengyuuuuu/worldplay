@@ -96,7 +96,3 @@ Enter as the CEO at round zero. Three scripted deals cover team retention, a sma
 Key events pause automatic play. The ending summarizes recorded commitments and lets you branch from the opening. All three demos have skippable introductions, with a browser-local preference to skip every introduction. Skipping changes neither time nor decisions.
 
 These deals use explicit rules. Free-form speech does not automatically create a contract. In model mode, AI still selects character actions for the next round. Existing saves retain their previous behavior; start a new world for the crisis experience.
-
-## Language
-
-Project documentation is available in English and Chinese through the links above. The current playground interface and built-in scenario text are in Chinese; documentation language does not change the application language.
