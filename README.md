@@ -8,6 +8,29 @@
 
 A small, local-first harness for interactive multi-agent worlds. One scenario format powers the browser playground and CLI. Agents propose actions; the runtime validates conditions, updates resources, and records what actually happened.
 
+## Three worlds
+
+![Concept artwork: Power Succession, Save an AI Startup, and Lost Starship](./docs/images/three-worlds.png)
+
+*Three starting points. Different goals, limited resources, and decisions with consequences. Concept artwork, not gameplay screenshots.*
+
+### Power Succession
+The speaker is stepping down. Five contenders have six rounds to build enough support to take the seat. Make your case in public, negotiate behind closed doors, or spend scarce influence on an alliance—while keeping the chamber from falling apart.
+
+**Your dilemma:** How much trust will you trade for one more vote?
+
+### Save an AI Startup
+Thirty days of runway. An unfinished product. A customer who wants a delivery date, a CTO weighing another offer, and an investor with strings attached. Step in as CEO, negotiate a smaller launch, protect the team, or take the bridge money. When your promises come due, the world checks whether you delivered.
+
+**Your dilemma:** Can you save the company without losing the team—or control?
+
+### Lost Starship
+The ship has drifted off course. Communications are down, oxygen is running out, and each crew member knows something the others do not. Coordinate repairs, ration power, and decide what to reveal before the rescue window closes.
+
+**Your dilemma:** What will you sacrifice to get a distress signal out in time?
+
+The packs in `dist/lib/scenarios.js` share the same engine. Create a custom pack with 2–8 roles, 1–6 metrics, 2–10 actions and 2–30 rounds. Each action can have resource costs, effects, prerequisites, a once-only flag and support points. Initial conditions, roles and JSON are editable before play.
+
 ## Run
 
 Node.js 22.9+ (24 recommended). No npm dependencies.
@@ -21,14 +44,6 @@ npm test
 ```
 
 The three built-in scenarios work immediately in **rule demo mode**. This is deterministic behavior for trying the interface and engine, **not AI simulation**. AI-generated worlds and model-directed decisions require your own compatible model service.
-
-## Three worlds
-
-- **Power Succession** — five candidates negotiate before a succession vote; shared influence resources and individual support scores.
-- **Save an AI Startup** — four stakeholders try to secure revenue and runway within 30 days.
-- **Lost Starship** — four crew members restore systems and send a distress signal before oxygen runs out.
-
-The packs in `dist/lib/scenarios.js` share the same engine. Create a custom pack with 2–8 roles, 1–6 metrics, 2–10 actions and 2–30 rounds. Each action can have resource costs, effects, prerequisites, a once-only flag and support points. Initial conditions, roles and JSON are editable before play.
 
 ## Connect a model
 
