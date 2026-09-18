@@ -31,6 +31,14 @@ The ship has drifted off course. Communications are down, oxygen is running out,
 
 The packs in `dist/lib/scenarios.js` share the same engine. Create a custom pack with 2–8 roles, 1–6 metrics, 2–10 actions and 2–30 rounds. Each action can have resource costs, effects, prerequisites, a once-only flag and support points. Initial conditions, roles and JSON are editable before play.
 
+## Inside the sandbox
+
+![Lost Starship sandbox after the first round](./docs/images/sandbox-demo.png)
+
+**Watch decisions become consequences.** This real rule-demo screenshot shows the first round of Lost Starship: resources at the top, character relationships and the selected role on the left, and recorded actions with their effects on the right. Take over a character or introduce an event to change what happens next.
+
+[Try the sandbox →](https://worldplay-agent-worlds.applejade.chatgpt.site/)
+
 ## Run
 
 Node.js 22.9+ (24 recommended). No npm dependencies.
